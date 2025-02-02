@@ -1,0 +1,197 @@
+This File is meant to be a searchable quick reference guide for C++
+
+Compiling
+
+1. I have created 2 shortcuts/aliases for Compiling C++ programs, one for debug (cppd) and one for release (cppr)
+  a. Use these with the expectation of passing in the desired executable filename and then the actual cpp filename that will be compiled.
+
+
+C++ Language Quick-Reference
+
+1. Comments: 
+    - Use "//" for a single line Comments
+    - // This is a comment in c++
+    - Use "/*" to start a comment block, and end the block with "*/"
+    - /* This is a block
+         comment in c++ */ 
+
+2. Objects / Variables: 
+    - Initialization: variable type, followed by variable name, ending in semicolon 
+        Ex:
+            int x;
+
+        Multiple Ex:
+            int x, y;
+            int x { 5 }, y { 10 }; // direct-list-initialization (use this; most recommended to avoid pitfalls)
+            int x ( 3 ), int y ( 5 ) // direct-initialization
+
+        Recommended: (easier to read if things are on one line, but not a rule)
+            int x;
+            int y;
+
+    - Assignment:
+        Ex:
+            int x;
+            x = 5;
+
+    - Recommended way to initialize and assign variables in one statement: (called List Initialization)
+        Ex:
+            int x { 5 };
+            int y {};
+
+    - NOTE: Base Initialization of unknown values can be with { 0 } or {}, depending on use-case
+        Ex:
+            When you want to 'use' the initial value right away, use Direct Initialization like this:
+            int x { 0 };
+            std::cout << x;
+
+            When you want to set up the variable to be replaced
+            int x {};
+            std::cin x;
+
+    - Unused variables: You can use 'maybe_unused' attribute to tell compiler to not complain 
+        Ex:
+            int main()
+    {
+        [[maybe_unused]] double pi { 3.14159 };
+        ...
+        ...
+        ...
+        return 0;
+    }
+
+3. INPUT / OUTPUT (std::cout, std::cin):
+
+    #include <iostream>  // for std::cout and std::cin
+
+    int main()
+    {
+    std::cout << "Enter two numbers: ";
+
+    int x{};
+    std::cin >> x;
+
+    int y{};
+    std::cin >> y;
+
+    std::cout << "You entered " << x << " and " << y << '\n';
+
+    return 0;
+    }
+
+    Difference b/w std::cin, std::cout, the insertion operator (<<) and the extraction operator (>>).
+    Here’s an easy way to remember:
+
+    std::cin and std::cout always go on the left-hand side of the operator.
+    std::cout is used to output a value (cout = character output).
+    std::cin is used to get an input value (cin = character input).
+    << is used with std::cout, and shows the direction that data is moving. std::cout << 4 moves the value 4 to the console.
+    >> is used with std::cin, and shows the direction that data is moving. std::cin >> x moves the value the user entered from the keyboard into variable x.
+
+
+4. Reserved Keywords to avoid for Varialbe Names:
+
+    alignas
+    alignof
+    and
+    and_eq
+    asm
+    auto
+    bitand
+    bitor
+    bool
+    break
+    case
+    catch
+    char
+    char8_t (since C++20)
+    char16_t
+    char32_t
+    class
+    compl
+    concept (since C++20)
+    const
+    consteval (since C++20)
+    constexpr
+    constinit (since C++20)
+    const_cast
+    continue
+    co_await (since C++20)
+    co_return (since C++20)
+    co_yield (since C++20)
+    decltype
+    default
+    delete
+    do
+    double
+    dynamic_cast
+    else
+    enum
+    explicit
+    export
+    extern
+    false
+    float
+    for
+    friend
+    goto
+    if
+    inline
+    int
+    long
+    mutable
+    namespace
+    new
+    noexcept
+    not
+    not_eq
+    nullptr
+    operator
+    or
+    or_eq
+    private
+    protected
+    public
+    register
+    reinterpret_cast
+    requires (since C++20)
+    return
+    short
+    signed
+    sizeof
+    static
+    static_assert
+    static_cast
+    struct
+    switch
+    template
+    this
+    thread_local
+    throw
+    true
+    try
+    typedef
+    typeid
+    typename
+    union
+    unsigned
+    using
+    virtual
+    void
+    volatile
+    wchar_t
+    while
+    xor
+    xor_eq
+
+
+5. FUNCTIONS:
+
+Example:
+
+returnType functionName() // This is the function header (tells the compiler about the existence of the function)
+{
+    // This is the function body (tells the compiler what the function does)
+}
+
+
